@@ -4,7 +4,9 @@
 }
 
 #container .piece {
+    box-sizing: border-box;
     width: 1em;
     height: 1em;
     background-color: lightgray;
+    border: 1px solid darkgray;
 }
