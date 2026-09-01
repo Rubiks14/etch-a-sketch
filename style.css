@@ -8,5 +8,8 @@
     width: 1em;
     height: 1em;
     background-color: lightgray;
-    border: 1px solid darkgray;
+}
+
+#container .piece.filled {
+    background-color: darkgray;
 }

@@ -12,3 +12,13 @@ for(let step = 0; step < GRID_WIDTH * GRID_HEIGHT; step++) {
 }
 
 container.style.width = `${GRID_WIDTH*1}em`
+
+for (const piece of container.children) {
+    piece.addEventListener("pointerenter", function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        if (!this.classList.contains("filled")) {
+            this.classList.add("filled");
+        }
+    }, {once : true});
+}
