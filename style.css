@@ -1,0 +1,10 @@
+#container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#container .piece {
+    width: 1em;
+    height: 1em;
+    background-color: lightgray;
+}
