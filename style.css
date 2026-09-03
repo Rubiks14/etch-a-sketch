@@ -13,6 +13,14 @@ body {
     border-radius: 20px;
 }
 
+#behaviorButtons {
+    padding-top: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 #container {
     display: flex;
     flex-flow: row wrap;
@@ -22,8 +30,4 @@ body {
 #container .piece {
     box-sizing: border-box;
     background-color: lightgray;
-}
-
-#container .piece.filled {
-    background-color: darkgray;
 }

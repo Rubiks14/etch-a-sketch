@@ -10,6 +10,8 @@ let unitSize = CONTAINER_WIDTH / gridSize;
 const container = document.getElementById("container");
 container.style.width = `${CONTAINER_WIDTH}px`
 
+let behaviorFunction = defaultBehavior;
+
 document.querySelector("#resizeButton").addEventListener("click", () => {
     let size = 0;
     size = prompt("Please enter a grid size between 16 and 100");
@@ -27,6 +29,31 @@ document.querySelector("#resizeButton").addEventListener("click", () => {
     initBoard();
 });
 
+document.querySelector("#defaultBehavior").addEventListener("click", () => {
+    behaviorFunction = defaultBehavior;
+    initBoard();
+})
+
+document.querySelector("#rainbowBehavior").addEventListener("click", () => {
+    behaviorFunction = rainbowBehavior;
+    initBoard();
+})
+
+function defaultBehavior(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    this.style.backgroundColor = "darkgray";
+}
+
+function rainbowBehavior(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+    this.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+}
+
 function initBoard() {
     container.textContent = '';
     for(let step = 0; step < gridSize * gridSize; step++) {
@@ -34,13 +61,7 @@ function initBoard() {
         gridPiece.classList.toggle("piece");
         gridPiece.style.width = `${unitSize}px`;
         gridPiece.style.height = `${unitSize}px`;
-        gridPiece.addEventListener("pointerenter", function(e) {
-            e.stopPropagation();
-            e.preventDefault();
-            if (!this.classList.contains("filled")) {
-                this.classList.add("filled");
-            }
-        }, {once : true});
+        gridPiece.addEventListener("pointerenter", behaviorFunction);
         container.appendChild(gridPiece);
     }
 }
