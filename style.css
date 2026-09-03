@@ -1,6 +1,22 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 50px 50px 50px;
+    background-color: crimson;
+    border-radius: 20px;
+}
+
 #container {
     display: flex;
     flex-flow: row wrap;
+    padding-top: 25px;
 }
 
 #container .piece {
