@@ -24,10 +24,9 @@ body {
 #container {
     display: flex;
     flex-flow: row wrap;
-    padding-top: 25px;
+    margin-top: 25px;
 }
 
 #container .piece {
     box-sizing: border-box;
-    background-color: lightgray;
 }

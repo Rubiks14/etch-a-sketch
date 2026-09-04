@@ -9,6 +9,7 @@ let unitSize = CONTAINER_WIDTH / gridSize;
 
 const container = document.getElementById("container");
 container.style.width = `${CONTAINER_WIDTH}px`
+container.style.backgroundColor = "lightgray";
 
 let behaviorFunction = defaultBehavior;
 
@@ -39,6 +40,11 @@ document.querySelector("#rainbowBehavior").addEventListener("click", () => {
     initBoard();
 })
 
+document.querySelector("#progressiveBehavior").addEventListener("click", () => {
+    behaviorFunction = progressiveBehavior;
+    initBoard();
+})
+
 function defaultBehavior(e) {
     e.stopPropagation();
     e.preventDefault();
@@ -52,6 +58,15 @@ function rainbowBehavior(e) {
     let g = Math.floor(Math.random() * 255);
     let b = Math.floor(Math.random() * 255);
     this.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+}
+
+function progressiveBehavior(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    this.style.backgroundColor = "black";
+    if (this.style.opacity < 1.0) {
+        this.style.opacity = Number(this.style.opacity) + 0.1;
+    }
 }
 
 function initBoard() {
